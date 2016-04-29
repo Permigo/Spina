@@ -1,5 +1,6 @@
 module Spina
   class PagesController < Spina::ApplicationController
+    before_action :redirect_to_no_trailing_slash
     before_action :rewrite_page, only: [:show]
     before_action :current_user_can_view_page?, except: [:robots]
 
@@ -18,6 +19,9 @@ module Spina
     end
 
     private
+      def redirect_to_no_trailing_slash
+        Rails.logger.info request.url
+      end
 
       def rewrite_page
         unless page.present?

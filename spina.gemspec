@@ -34,4 +34,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'spina-template'
   s.add_dependency 'turbolinks'
   s.add_dependency 'kaminari'
+  s.add_dependency 'rack-rewrite', '~> 1.5.0'
 end
