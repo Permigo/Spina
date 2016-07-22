@@ -57,6 +57,10 @@ module Spina
       read_attribute(:seo_title).blank? ? title : read_attribute(:seo_title)
     end
 
+    def slug
+      read_attribute(:slug).blank? ? url_title : read_attribute(:slug).try(:parameterize)
+    end
+
     def has_content?(page_part)
       content(page_part).present?
     end
@@ -114,9 +118,9 @@ module Spina
 
     def generate_materialized_path
       if root?
-        name == 'homepage' ? '' : "#{url_title}"
+        name == 'homepage' ? '' : slug.to_s
       else
-        ancestors.collect(&:url_title).append(url_title).join('/')
+        ancestors.collect(&:slug).append(slug).join('/')
       end
     end
 

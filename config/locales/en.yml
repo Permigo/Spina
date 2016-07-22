@@ -153,6 +153,8 @@ en:
         description: Meta description
         description_description: This description will be shown in search results
         description_placeholder: Short description of your page
+        slug: Slug
+        slug_placeholder: Page slug
         draft: Draft
         draft_description: Great for when your page is not quite finished
         skip_to_first_child: Forward

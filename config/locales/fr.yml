@@ -145,6 +145,8 @@ fr:
         description: Meta description
         description_description: Cette description sera affiché dans les résultats de recherche
         description_placeholder: Petite description de votre page
+        slug: Slug
+        slug_placeholder: Slug de la page
         draft: Concept
         draft_description: Idéal lorsque votre page est pas tout à fait fin
         skip_to_first_child: Transmettre
