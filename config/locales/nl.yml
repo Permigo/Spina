@@ -57,6 +57,7 @@ nl:
       skip_to_first_child: doorsturen naar 1<sup>e</sup> subpagina
       invisible_to_search_engines: Je website is niet zichtbaar voor zoekmachines
       invisible_to_search_engines_description: Bij voorkeuren voor Statistieken en zoekmachines kun je dit activeren.
+      saving: <i></i> Opslaan...
 
     users:
       new: Nieuwe gebruiker
@@ -92,7 +93,7 @@ nl:
       social_media: Social media
       social_media_description: Facebook en Twitter accounts
       social_media_save: Social media opslaan
-      analytics: Statistieken en zoekmachines
+      analytics: Google Analytics
       analytics_description: Koppel je account voor real-time statistieken
       analytics_save: Voorkeuren opslaan
       domain_name_settings: Eigen domein instellen
@@ -135,9 +136,9 @@ nl:
         vat_identifier_description: Het is verplicht je BTW-nummer te vermelden op je website
         theme: Layout website
         logo: Logo
-        google_analytics: Google Analytics
+        google_analytics: Universal Analytics Code
         google_site_verification: Google Site Verification
-        robots_allowed: Zichtbaar in zoekmachines
+        robots_allowed: Zichtbaar in Google
         facebook: Facebook
         twitter: Twitter
         google_plus: Google+

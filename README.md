@@ -11,7 +11,7 @@
 
 Spina is a CMS built upon the Rails framework. This guide is designed for developers with experience using Ruby on Rails.
 
-To start using Spina CMS simply add the following lines to your Gemfile:
+To start using Spina CMS add the following line to your Gemfile:
 
 ```ruby
 gem 'spina'
@@ -77,7 +77,6 @@ A page in Spina has many Page parts. By default these page parts can be one of t
 - `Spina::Text`
 - `Spina::Photo`
 - `Spina::PhotoCollection`
-- `Spina::Color`
 - `Spina::Structure`
 
 These are the building blocks of your view templates. You can have an unlimited number of page parts in a page. We prefer to keep the number of parts to a minimum so that managing your pages won't become too complex.
@@ -179,7 +178,6 @@ We have successfully added another textbox! Restart your server and load up the 
 Sometimes you need editable content that's not specific to a view template but to your theme as a whole. You can use the following parts in your layout.
 
 - `Spina::Line`
-- `Spina::Color`
 
 ## View templates
 

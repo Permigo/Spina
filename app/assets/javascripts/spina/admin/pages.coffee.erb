@@ -31,7 +31,7 @@ show_page_parts = (page_parts) ->
     $('.horizontal-form-group.page-part[data-name=' + page_part + ']').show()
 
 # Dynamically add and remove fields in a nested form
-$(document).on 'click', 'form .add_fields', (event) ->
+$(document).on 'click', 'form .add_structure_item_fields', (event) ->
   time = new Date().getTime()
   regexp = new RegExp($(this).data('id'), 'g')
   $(this).before($(this).data('fields').replace(regexp, time))
@@ -58,9 +58,12 @@ $(document).on 'click', 'form .add_structure', (event) ->
 
   $link.find('a').click()
 
+  # Fire event
+  $structureForm.trigger('spina:structure_added')
+
   event.preventDefault()
 
-$(document).on 'click', 'form .remove-structure-item-fields', (event) ->
+$(document).on 'click', 'form .remove_structure_item_fields', (event) ->
   $(this).prev('input[type=hidden]').val('1')
   $pane = $(this).closest('.structure-form-pane')
   $link = $("a[href='##{$pane.attr('id')}']").parents('li')
@@ -70,6 +73,12 @@ $(document).on 'click', 'form .remove-structure-item-fields', (event) ->
   $link.hide()
   $pane.hide()
   event.preventDefault()
+
+$(document).on 'change', '.structure-form-pane .structure-form-part:first-child input', (event) ->
+  value = $(this).val()
+  $pane = $(this).parents('.structure-form-pane')
+  $link = $("a[href='##{$pane.attr('id')}']")
+  $link.html("<i class='icon icon-bars'></i> #{value}")
 
 # Sort pages
 $(document).on 'click', '.sort-switch', (event) ->

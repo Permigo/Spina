@@ -18,7 +18,7 @@ module Spina
           @page.view_template = params[:view_template]
         end
         add_breadcrumb I18n.t('spina.pages.new')
-        @page_parts = current_theme.page_parts.map { |page_part| @page.page_part(page_part) }
+        @page_parts = @page.view_template_page_parts(current_theme).map { |part| @page.page_part(part) }
         render layout: 'spina/admin/admin'
       end
 
@@ -29,23 +29,23 @@ module Spina
           redirect_to spina.edit_admin_page_url(@page)
         else
           @page_parts = @page.page_parts
-          render :new
+          render :new, layout: 'spina/admin/admin'
         end
       end
 
       def edit
         @page = Page.find(params[:id])
         add_breadcrumb @page.title
-        @page_parts = current_theme.page_parts.map { |page_part| @page.page_part(page_part) }
+        @page_parts = @page.view_template_page_parts(current_theme).map { |part| @page.page_part(part) }
         render layout: 'spina/admin/admin'
       end
 
       def update
         I18n.locale = params[:locale] || I18n.default_locale
         @page = Page.find(params[:id])
-        add_breadcrumb @page.title
         respond_to do |format|
           if @page.update_attributes(page_params)
+            add_breadcrumb @page.title
             @page.touch
             I18n.locale = I18n.default_locale
             format.html { redirect_to spina.edit_admin_page_url(@page, params: {locale: @locale}) }
@@ -53,7 +53,7 @@ module Spina
           else
             format.html do
               @page_parts = @page.page_parts
-              render :edit
+              render :edit, layout: 'spina/admin/admin'
             end
           end
         end

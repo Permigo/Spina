@@ -1,3 +1,1 @@
-button = $('form button[type=submit].button-saving')
-button.removeClass('button-saving')
-button.attr("data-icon", "o")
+$('#header .breadcrumbs').html("<%=j render_breadcrumbs separator: '<div class="divider"></div>' %>")

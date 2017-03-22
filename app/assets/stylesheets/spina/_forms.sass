@@ -51,7 +51,7 @@
   margin: 0 auto
   max-width: 960px
   @include display(flex)
-  
+
 .sidebar-form-content
   @include flex(1)
 
@@ -237,7 +237,7 @@
   font-size: 14px
   font-weight: 600
   left: 0
-  line-height: 36px
+  line-height: 39px
   padding: 0 12px
   position: absolute
   top: 0
@@ -247,7 +247,7 @@
   content: attr(data-form-append)
   font-size: 14px
   font-weight: 600
-  line-height: 36px
+  line-height: 39px
   padding: 0 12px
   position: absolute
   right: 0
@@ -257,6 +257,7 @@
 
 .form-checkbox
   label
+    cursor: pointer
     display: block
     font-size: 13px
     font-weight: 600
@@ -305,6 +306,8 @@
   @include display(flex)
 
   #{$all-text-inputs}, .text-input, .select-dropdown
+    @include flex(1)
+
     &:not(:first-child)
       border-bottom-left-radius: 0
       border-top-left-radius: 0
@@ -379,84 +382,6 @@ fieldset
 
   #{$all-text-inputs-focus}, textarea:focus
     border: 1px solid $danger-color
-
-// Restaurant menu form
-
-.restaurant-menu-form
-  border: 1px solid #c3c3c3
-  border-radius: 3px
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .16)
-  margin-bottom: 12px
-  padding: 10px
-
-  .restaurant-menu-name:after
-    clear: left
-    content: " "
-    display: block
-
-  .restaurant-menu-name input
-    font-size: 18px
-    padding: 10px
-
-  .restaurant-menu-name .remove_fields
-    color: #999
-
-  input
-    border: none
-    box-shadow: none
-    font-family: $font-family-serif
-    font-weight: 600
-    padding: 5px 10px
-
-  small input
-    color: #666
-    font-style: italic
-    font-weight: normal
-    padding-top: 0
-
-  .restaurant-dish-fields
-    margin-bottom: 10px
-
-    &:after
-      clear: left
-      content: " "
-      display: block
-
-    .restaurant-dish-price
-      text-align: right
-
-      .remove_fields
-        color: #999
-        margin-right: 0px
-        opacity: 0
-        @include transition(none)
-
-      input
-        color: #333
-        font-size: 16px
-        font-weight: 600
-        text-align: right
-
-        @include placeholder
-          font-size: 14px
-
-    &:hover .restaurant-dish-price .remove_fields
-      opacity: 1
-
-  .add_fields.button
-    background: #f5f5f5
-    font-size: 13px
-    font-weight: 600
-    text-align: center
-    width: 100%
-
-    &:hover
-      background: #f1f1f1
-
-    i:before
-      font-size: 11px
-      line-height: 13px
-      margin-right: 2px
 
 // Search input
 
@@ -608,7 +533,7 @@ input.datepicker
     line-height: 28px
     position: absolute
     right: 8px
-    top: 2px
+    top: 5px
     z-index: 1
 
   select
@@ -625,7 +550,7 @@ input.datepicker
     line-height: 16px
     margin: 0
     outline: none
-    padding: 8px 36px 8px 10px
+    padding: 11px 36px 11px 10px
     position: relative
     width: 115%
     z-index: 2
@@ -807,10 +732,15 @@ input.datepicker
     display: none
 
 .media_picker
+  background: #f9f9f9
+  border: 1px solid #d5d5d5
   border-radius: 3px
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, .1)
   color: #333
   display: block
   margin-top: 2px
+  min-height: 70px
+  padding: 15px
   position: relative
 
   .image
@@ -841,10 +771,10 @@ input.datepicker
     line-height: 36px
     margin-bottom: 2px
     position: absolute
-    right: 0px
+    right: 15px
 
     span
-      border: 5px solid #fff
+      border: 1px solid #ddd
       margin-top: -5px
       margin-right: -5px
 
